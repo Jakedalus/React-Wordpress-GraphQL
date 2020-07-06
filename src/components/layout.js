@@ -7,12 +7,29 @@
 
 import React from "react"
 import MainMenu from './mainMenu'
-import "./layout.css"
+
+import styled, { createGlobalStyle } from 'styled-components'
+
+const GlobalStyles = createGlobalStyle`
+  @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+
+  body {
+    font-family: 'Open Sans', sans-serif;
+  }
+`;
+
+const LayoutWrapper = styled.div`
+  max-width: 960px;
+  margin: 0 auto;
+`;
 
 const Layout = ({ children }) => (
   <div>
+    <GlobalStyles />
     <MainMenu />
-    {children}
+    <LayoutWrapper>
+      {children}
+    </LayoutWrapper>
   </div>
 )
 
