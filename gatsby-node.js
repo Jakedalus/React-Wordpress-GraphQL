@@ -145,12 +145,16 @@ exports.createPages = ({ graphql, actions }) => {
             console.log(result.errors)
             reject(result.errors)
           }
-          const posts = result.data.allWordpressWpPosts.edges
+          const posts = result.data.allWordpressPost.edges
           const postsPerPage = 2
           const numberOfPages = Math.ceil(posts.length / postsPerPage)
+          const blogPostListTemplate = path.resolve(
+            "./src/templates/blogPostList.js"
+          )
 
           Array.from({ length: numberOfPages }).forEach((page, index) => {
             createPage({
+              component: slash(blogPostListTemplate),
               path: index === 0 ? `/blog` : `/blog/${index + 1}`,
               context: {
                 posts: posts.slice(
