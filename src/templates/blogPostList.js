@@ -25,6 +25,9 @@ export default ({ pageContext }) => (
         <h3 dangerouslySetInnerHTML={{ __html: post.node.title }} />
         <small>{post.node.date}</small>
         <p dangerouslySetInnerHTML={{ __html: post.node.excerpt }} />
+        <div>
+          <Link to={`/post/${post.node.slug}`}>Read more</Link>
+        </div>
       </div>
     ))}
     <Pagination>
