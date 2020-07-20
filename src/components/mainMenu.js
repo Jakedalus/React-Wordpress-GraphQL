@@ -50,7 +50,7 @@ const MainMenu = () => (
           <SiteInfo />
           {props.allWordpressWpApiMenusMenusItems.edges[0].node.items.map(
             item => (
-              <MenuItem to={item.object_slug} key={item.title}>
+              <MenuItem to={`/${item.object_slug}`} key={item.title}>
                 {item.title}
               </MenuItem>
             )
